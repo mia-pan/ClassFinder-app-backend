@@ -1,0 +1,2 @@
+class UserAppointmentsController < ApplicationController
+end
