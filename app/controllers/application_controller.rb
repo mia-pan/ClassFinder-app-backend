@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::API
+    #gem install jwt (in terminal)
     #receive a user and return a token
+    #encode is used to build those string in JWT
   def issue_token(user)
     JWT.encode({user_id: user.id}, 'secret_key', 'HS256')
   end
@@ -30,9 +32,9 @@ class ApplicationController < ActionController::API
   def logged_in?
     !!current_user
   end
-
-  def encode_token(payload)
-    JWT.encode(payload, 'secret_key')
-  end
+#for redux
+#   def encode_token(payload)
+#     JWT.encode(payload, 'secret_key')
+#   end
 
 end
