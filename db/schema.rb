@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_02_22_022719) do
   end
 
   create_table "categories", force: :cascade do |t|
+    t.string "image"
     t.string "name"
     t.string "description"
     t.datetime "created_at", precision: 6, null: false

@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
     def index 
+        # byebug
         categories = Category.all
         render :json => categories
     end 
@@ -8,11 +9,13 @@ class CategoriesController < ApplicationController
         category = Category.find_by(name: params[:id])
         render :json => category
     end 
-
+     
     def create 
         category = Category.create(category_params)
         render :json => category
     end 
+
+    # def 
 
     def update 
         category = Category.find(params[:id])
@@ -28,7 +31,7 @@ class CategoriesController < ApplicationController
 
     private 
     def category_params
-        params.require(:category).permit(:name, :description)
+        params.require(:category).permit(:image, :name, :description)
     end 
 
 end

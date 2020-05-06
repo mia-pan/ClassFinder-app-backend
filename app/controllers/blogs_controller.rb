@@ -6,11 +6,12 @@ class BlogsController < ApplicationController
     end 
 
     def show 
-        blog = Blog.find_by(title: params[:id])
+        blog = Blog.find_by(id: params[:id])
         render :json => blog
     end 
 
     def create 
+        # byebug
         blog = Blog.create(blog_params)
         render :json => blog
     end 

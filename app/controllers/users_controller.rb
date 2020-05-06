@@ -6,7 +6,8 @@ class UsersController < ApplicationController
     end 
 
     def show 
-        user =User.find_by(username: params[:id])
+        user =User.find_by(id: params[:id])
+        puts user.isTeacher
         render :json => user 
     end 
 
@@ -16,13 +17,15 @@ class UsersController < ApplicationController
             render json: { user: UserSerializer.new(@user)}, status: :created
           else
             render json: { error: 'failed to create user' }, status: :not_acceptable
-          end
+        end 
     end 
 
     def update 
+        # byebug
         user = User.find(params[:id])
         user.update(user_params)
-        render :json => user 
+        puts user
+        render json: user 
     end 
 
     def destroy
